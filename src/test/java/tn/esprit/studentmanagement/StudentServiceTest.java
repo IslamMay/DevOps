@@ -1,11 +1,10 @@
 package tn.esprit.studentmanagement;
 
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import tn.esprit.studentmanagement.entities.Student;
 import tn.esprit.studentmanagement.repositories.StudentRepository;
 import tn.esprit.studentmanagement.services.StudentService;
@@ -16,7 +15,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class StudentServiceTest {
+@ExtendWith(MockitoExtension.class)
+public class StudentServiceTest {
 
     @Mock
     private StudentRepository studentRepository;
@@ -24,12 +24,6 @@ class StudentServiceTest {
     @InjectMocks
     private StudentService studentService;
 
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
-
-    // Test 1 : getAllStudents
     @Test
     void testGetAllStudents() {
         Student student1 = new Student();
@@ -49,7 +43,6 @@ class StudentServiceTest {
         verify(studentRepository, times(1)).findAll();
     }
 
-    // Test 2 : saveStudent
     @Test
     void testSaveStudent() {
         Student student = new Student();
