@@ -55,7 +55,7 @@ class StudentServiceTest {
         student.setEmail("sami@mail.com");
         student.setPhone("55555555");
         student.setDateOfBirth(LocalDate.of(2001, 1, 15));
-        student.setAddress("Sousse");   
+        student.setAddress("Sousse");
 
         when(studentRepository.save(student)).thenReturn(student);
 
