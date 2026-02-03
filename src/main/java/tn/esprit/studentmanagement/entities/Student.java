@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
