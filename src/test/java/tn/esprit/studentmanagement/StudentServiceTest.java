@@ -61,9 +61,9 @@ class StudentServiceTest {
 
         // WHEN
         Student saved = studentService.saveStudent(student);
-   
+
         // THEN
-        assertEquals("Sami", saved.getFirstName());
+        assertEquals("Sami", saved.getFirstName());    
         assertEquals("Trabelsi", saved.getLastName());
     }
 
