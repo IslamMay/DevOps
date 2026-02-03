@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Student {
     @Id
-    
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idStudent;
     private String firstName;
@@ -30,4 +30,6 @@ public class Student {
 
     @OneToMany(mappedBy = "student")
     private List<Enrollment> enrollments;
+
+    
 }
