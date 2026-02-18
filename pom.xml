@@ -28,6 +28,14 @@
     </scm>
     <properties>
         <java.version>17</java.version>
+        <!-- SonarQube Properties -->
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.coverage.jacoco.xmlReportPaths>
+            ${project.build.directory}/site/jacoco/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.jacoco.reportPath>
+            ${project.build.directory}/jacoco.exec
+        </sonar.jacoco.reportPath>
     </properties>
     <dependencies>
         <dependency>
@@ -95,6 +103,27 @@
                     <include>**/*Test.java</include>
                 </includes>
             </configuration>
+        </plugin>
+        <!-- JaCoCo Plugin -->
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.11</version>
+            <executions>
+                <execution>
+                    <id>prepare-agent</id>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
         </plugins>
     </build>
